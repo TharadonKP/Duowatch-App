@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg1"
+    tools:context=".LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="97dp"
+            android:layout_marginLeft="97dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:textColor="#020202"
+            android:textColorHighlight="#020202"
+            android:textColorHint="#090909"
+            android:textColorLink="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="97dp"
+            android:layout_marginLeft="97dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="104dp"
+            android:layout_marginRight="104dp"
+            android:drawablePadding="12dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="#040303"
+            android:textColorHighlight="#020202"
+            android:textColorHint="#040303"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="106dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="116dp"
+            android:layout_marginEnd="66dp"
+            android:layout_marginRight="66dp"
+            android:text="Login"
+            android:textColor="#090909"
+            android:textColorHint="#090808"
+            app:backgroundTint="#FBFBFB"
+            app:iconTint="#C6A9B4"
+            app:layout_constraintEnd_toStartOf="@+id/btnreg"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+        <Button
+            android:id="@+id/btnreg"
+            android:layout_width="110dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="116dp"
+            android:layout_marginEnd="68dp"
+            android:layout_marginRight="68dp"
+            android:text="Register"
+            android:textColor="#090909"
+            android:textColorHint="#090808"
+            app:backgroundTint="#FBFBFB"
+            app:iconTint="#C6A9B4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="321dp"
+            android:layout_height="294dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginRight="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.739"
+            app:layout_constraintStart_toEndOf="@+id/btnLogin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logindeng" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
