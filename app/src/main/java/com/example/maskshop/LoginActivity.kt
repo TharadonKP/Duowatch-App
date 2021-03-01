@@ -7,10 +7,7 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.FormBody
 import okhttp3.OkHttpClient
@@ -18,11 +15,9 @@ import okhttp3.Request
 import okhttp3.RequestBody
 import org.json.JSONException
 import org.json.JSONObject
-import java.io.IOException
 
 class LoginActivity : AppCompatActivity() {
-    var btnregis: Button? = null
-    var btnlogin: Button? = null
+
     val appPreference: String = "appPrefer"
     val userIdPreference: String = "userIdPref"
     val usernamePreference: String = "usernamePref"
@@ -48,10 +43,11 @@ class LoginActivity : AppCompatActivity() {
         //Find to components on a layout
         val editTextUsername = findViewById<EditText>(R.id.editTextUsername)
         val editTextPassword = findViewById<EditText>(R.id.editTextPassword)
-        val btnlogin = findViewById<Button>(R.id.btnLogin)
-        print("It's Ok2")
-        btnlogin.setOnClickListener {
-            print("It's Ok")
+        val btnLogin = findViewById<Button>(R.id.btnlogin)
+
+
+        btnLogin.setOnClickListener {
+
             val url = getString(R.string.root_url) + getString(R.string.login_url)
             val okHttpClient = OkHttpClient()
             val formBody: RequestBody = FormBody.Builder()
@@ -67,9 +63,9 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     try {
                         val obj = JSONObject(response.body!!.string())
-                        val user_id = obj["user_id"].toString()
+                        val userID = obj["userID"].toString()
                         val username = obj["username"].toString()
-                        val user_type_id = obj["user_type_id"].toString()
+                        val userTypeID = obj["userTypeID"].toString()
 
 
                         //Create shared preference to store user data
@@ -77,18 +73,18 @@ class LoginActivity : AppCompatActivity() {
                                 getSharedPreferences(appPreference, Context.MODE_PRIVATE)
                         val editor: SharedPreferences.Editor = sharedPrefer.edit()
 
-                        editor.putString(userIdPreference, user_id)
+                        editor.putString(userIdPreference, userID)
                         editor.putString(usernamePreference, username)
-                        editor.putString(userTypePreference, user_type_id)
+                        editor.putString(userTypePreference, userTypeID)
                         editor.commit()
 
                         //return to login page
-                        if (user_type_id == "2") //0 = general users
+                        if (userTypeID == "3") //0 = general users
                         {
                             val intent = Intent(applicationContext, MainActivity::class.java)
                             startActivity(intent)
                             finish()
-                        } else if (user_type_id == "3")//1 = admin
+                        } else if (userTypeID == "2")//1 = admin
                         {
                             val intent = Intent(applicationContext, MainActivity::class.java)
                             startActivity(intent)
@@ -115,11 +111,11 @@ class LoginActivity : AppCompatActivity() {
         val usertype = sharedPrefer?.getString(userTypePreference, null)
 
         //if (sharedPrefer.contains(usernamePreference))
-        if (usertype == "2") {
+        if (usertype == "3") {
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
             finish()
-        } else if (usertype == "3") {
+        } else if (usertype == "2") {
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
             finish()
